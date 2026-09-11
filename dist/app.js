@@ -1,3 +1,25 @@
-const videos=[['東京扭蛋 Vol.04',211000],['東京必扭 Vol.07',66000],['紅磚倉庫',12000],['橫濱散步',3878],['POV 日常',1454],['橫濱車站',1018],['自由之丘',717],['吉祥寺',616],['淺草咖啡廳',271]];
-document.getElementById('view-chart').innerHTML=videos.map(([name,value])=>`<div class="chart-row"><span>${name}</span><div class="bar-track"><div class="bar-fill" style="width:${value/211000*100}%"></div></div><b>${value.toLocaleString()}</b></div>`).join('');
-document.querySelectorAll('video').forEach(video=>video.addEventListener('play',()=>document.querySelectorAll('video').forEach(other=>{if(other!==video)other.pause()})));
+document.querySelectorAll('video').forEach(video => video.addEventListener('play', () => {
+  document.querySelectorAll('video').forEach(other => { if (other !== video) other.pause(); });
+}));
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.getElementById('main-nav');
+function closeMenu(returnFocus = false) {
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', '開啟選單');
+  navigation.classList.remove('is-open');
+  if (returnFocus) menuButton.focus();
+}
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
+  navigation.classList.toggle('is-open', open);
+});
+navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') closeMenu(true);
+});
+document.addEventListener('click', event => {
+  if (!navigation.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+});
+matchMedia('(min-width: 721px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
