@@ -25,28 +25,6 @@ document.addEventListener('click', event => {
 matchMedia('(min-width: 721px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
 
-const breakdownTabs = [...document.querySelectorAll('.breakdown-tab')];
-function selectBreakdown(tab) {
-  breakdownTabs.forEach(item => {
-    const selected = item === tab;
-    item.setAttribute('aria-selected', String(selected));
-    item.tabIndex = selected ? 0 : -1;
-    const panel = document.getElementById(item.getAttribute('aria-controls'));
-    panel.hidden = !selected;
-    if (!selected) panel.querySelector('video').pause();
-  });
-}
-breakdownTabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => selectBreakdown(tab));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if(event.key === 'ArrowRight') next = (index + 1) % breakdownTabs.length;
-    if(event.key === 'ArrowLeft') next = (index + breakdownTabs.length - 1) % breakdownTabs.length;
-    if(event.key === 'Home') next = 0;
-    if(event.key === 'End') next = breakdownTabs.length - 1;
-    if(next !== undefined) {event.preventDefault(); selectBreakdown(breakdownTabs[next]); breakdownTabs[next].focus();}
-  });
-});
 document.querySelectorAll('.breakdown-panel').forEach(panel => {
   const video = panel.querySelector('video');
   const chapters = [...panel.querySelectorAll('[data-edit-time]')];
