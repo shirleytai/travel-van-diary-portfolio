@@ -79,3 +79,9 @@ h1{font-size:var(--text-hero)}h2,.service-intro h2{font-size:var(--text-section)
 @keyframes music-nod{0%,100%{rotate:0deg;translate:0 0}25%{rotate:-4deg;translate:0 3px}50%{rotate:0deg;translate:0 -2px}75%{rotate:4deg;translate:0 3px}}
 @keyframes editing-lean{0%,100%{rotate:0deg;translate:0 0}30%{rotate:-4deg;translate:-3px -2px}60%{rotate:2deg;translate:2px 0}80%{rotate:-2deg;translate:-1px -1px}}
 @media(prefers-reduced-motion:reduce){#pricing .price-action .sticker{animation:none!important}}
+
+/* Editing craft: open, readable explanations beside the portfolio. */
+.editing-craft{margin-top:64px;padding-top:40px;border-top:1px solid var(--line)}
+.craft-intro{max-width:720px;margin-bottom:28px}.craft-intro .eyebrow{margin-bottom:12px}.craft-intro>p:last-child{margin-top:12px;color:var(--muted)}
+.craft-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}.craft-grid article{min-width:0}.craft-label{display:block;color:var(--olive);font-size:var(--text-small);margin-bottom:12px;font-weight:600}.craft-grid h3{margin-bottom:12px}.craft-grid p{font-size:var(--text-body);color:var(--muted);line-height:1.9}.craft-effect{margin-top:20px}.craft-effect b{display:block;color:var(--ink);font-size:var(--text-small);margin-bottom:4px}.craft-grid .text-link{margin-top:16px;white-space:normal}
+@media(max-width:720px){.editing-craft{margin-top:48px;padding-top:32px}.craft-grid{grid-template-columns:1fr;gap:36px}.craft-intro{margin-bottom:32px}.craft-grid h3{font-size:var(--text-subheading)}}
