@@ -23,3 +23,15 @@ document.addEventListener('click', event => {
   if (!navigation.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
 });
 matchMedia('(min-width: 721px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+
+const breakdownVideo = document.getElementById('breakdown-video');
+const editChapters = [...document.querySelectorAll('[data-edit-time]')];
+editChapters.forEach(button => button.addEventListener('click', () => {
+  breakdownVideo.currentTime = Number(button.dataset.editTime);
+  breakdownVideo.play().catch(() => {});
+  breakdownVideo.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block:'center'});
+}));
+breakdownVideo.addEventListener('timeupdate', () => {
+  const active = editChapters.findLast(button => Number(button.dataset.editTime) <= breakdownVideo.currentTime);
+  editChapters.forEach(button => { if(button === active) button.setAttribute('aria-current','true'); else button.removeAttribute('aria-current'); });
+});
