@@ -29,8 +29,8 @@ document.querySelectorAll('.breakdown-panel').forEach(panel => {
   const video = panel.querySelector('video');
   const chapters = [...panel.querySelectorAll('[data-edit-time]')];
   chapters.forEach(button => button.addEventListener('click', async () => {
-    if (video.readyState === 0) {
-      await new Promise(resolve => {video.addEventListener('loadedmetadata', resolve, {once:true}); video.load();});
+    if (video.readyState < 2) {
+      await new Promise(resolve => {video.addEventListener('loadeddata', resolve, {once:true}); video.load();});
     }
     video.currentTime = Number(button.dataset.editTime);
     video.play().catch(() => {});
