@@ -143,5 +143,5 @@ h1{font-size:var(--text-hero)}h2,.service-intro h2{font-size:var(--text-section)
 @media(max-width:1000px){#services.beyond-section{grid-template-columns:1fr;gap:32px}.beyond-intro{display:grid;grid-template-columns:minmax(0,1fr) 160px;gap:0 24px}.beyond-intro>.eyebrow,.beyond-intro>h2,.beyond-intro>p{grid-column:1}.beyond-intro .driving-sticker{grid-column:2;grid-row:1/4;width:160px;align-self:center;margin:0}.beyond-offerings{grid-template-columns:repeat(2,minmax(0,1fr))}.beyond-item-head{align-items:start;flex-direction:column;gap:10px}}
 @media(max-width:600px){.beyond-intro{grid-template-columns:1fr}.beyond-intro .driving-sticker{grid-column:1;grid-row:auto;justify-self:end;width:140px;margin:20px 0 0}.beyond-offerings{grid-template-columns:1fr}.beyond-item{padding:24px 20px}.beyond-item-head{flex-direction:row;flex-wrap:wrap}.beyond-intro>p:not(.eyebrow){max-width:none}}
 @media(prefers-reduced-motion:reduce){.beyond-item{transition:none}.beyond-item:hover{transform:none}}
-/* Clear boundary between selected works and extended services. */
-#services.beyond-section{border-top:2px solid var(--olive-mid)}
+/* Distinguish extended services through its background color. */
+#services.beyond-section{border-top:0;background:#d3d9b9}
