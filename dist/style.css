@@ -145,3 +145,18 @@ h1{font-size:var(--text-hero)}h2,.service-intro h2{font-size:var(--text-section)
 @media(prefers-reduced-motion:reduce){.beyond-item{transition:none}.beyond-item:hover{transform:none}}
 /* Distinguish extended services through its background color. */
 #services.beyond-section{border-top:0;background:#d3d9b9}
+/* Consistent section header and equal service cards. */
+#services.beyond-section{grid-template-columns:minmax(0,1fr);gap:36px;align-items:start}
+#services .beyond-intro{display:grid;grid-template-columns:minmax(0,1fr) 180px;column-gap:32px;row-gap:0;align-items:start}
+#services .beyond-intro>.eyebrow,#services .beyond-intro>h2,#services .beyond-intro>p{grid-column:1}
+#services .beyond-intro>.eyebrow{margin-bottom:18px}
+#services .beyond-intro>p:not(.eyebrow){max-width:600px;margin-top:20px}
+#services .beyond-intro .driving-sticker{grid-column:2;grid-row:1/4;width:180px;height:auto;margin:0;align-self:center;justify-self:end;transform:none}
+#services .beyond-offerings{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+#services .beyond-item{display:flex;flex-direction:column;padding:28px}
+#services .beyond-item-head{flex-direction:row;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+#services .beyond-item h3{margin:0 0 14px;line-height:1.6}
+#services .beyond-item>p{margin:0 0 24px}
+#services .beyond-tags{margin-top:auto;gap:8px 16px}
+@media(max-width:720px){#services.beyond-section{gap:28px}#services .beyond-intro{grid-template-columns:minmax(0,1fr) 110px;column-gap:16px}#services .beyond-intro .driving-sticker{width:110px;grid-row:2;align-self:center}#services .beyond-intro>.eyebrow,#services .beyond-intro>p:not(.eyebrow){grid-column:1/-1}#services .beyond-offerings{grid-template-columns:1fr;gap:20px}#services .beyond-item{padding:24px}#services .beyond-item-head{flex-wrap:wrap}}
+@media(max-width:380px){#services .beyond-intro{grid-template-columns:minmax(0,1fr) 76px;gap:0 12px}#services .beyond-intro .driving-sticker{width:76px}#services .beyond-intro h2{font-size:28px}#services .beyond-item{padding:20px}}
