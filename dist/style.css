@@ -162,3 +162,6 @@ h1{font-size:var(--text-hero)}h2,.service-intro h2{font-size:var(--text-section)
 @media(max-width:380px){#services .beyond-intro{grid-template-columns:minmax(0,1fr) 76px;gap:0 12px}#services .beyond-intro .driving-sticker{width:76px}#services .beyond-intro h2{font-size:28px}#services .beyond-item{padding:20px}}
 
 .plan-purpose{display:block;margin-top:8px;font-weight:600;color:var(--olive);line-height:1.6}.plan-example{display:block;margin-top:12px;font-size:var(--text-small);color:var(--muted);line-height:1.9}.plan-help{margin-top:24px;font-size:var(--text-body);color:var(--muted);line-height:1.9}#pricing .price-grid article>p:first-of-type{min-height:64px}@media(max-width:720px){#pricing .price-grid article>p:first-of-type{min-height:0}.plan-purpose{font-size:var(--text-small);margin-top:6px}}
+
+/* Preserve the full editing illustration. */
+.hero-art{border-radius:16px;padding:8px;transform:none}.hero-art>img{border-radius:10px;width:100%;height:auto}
